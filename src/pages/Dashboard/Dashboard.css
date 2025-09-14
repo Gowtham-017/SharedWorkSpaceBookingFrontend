@@ -1,0 +1,86 @@
+.dashboard-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  border-radius: 50px;
+  border: none;
+  padding: 10px 25px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #1a3d7c; 
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.view-toggle.active {
+  background: #fff;
+  color: #1a3d7c;
+  border: 2px solid #1a3d7c;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+.view-toggle:hover {
+  opacity: 0.85;
+}
+
+/* card */
+
+.book-card{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  gap: 20;
+  align-items: center;
+  padding: 25px;
+  border: 1px solid black;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+}
+
+.cancel-btn {
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 12px;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #5e5f60;
+}
+
+/* status */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 12px;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+.status-CANCELLED {
+  background-color: #e74c3c;
+  color: white;
+}
+.status-CONFIRMED {
+  background-color: #4caf50;
+  color: white;
+}
+.status-AVAILABLE {
+  background-color: #3498db;
+  color: white;
+}
