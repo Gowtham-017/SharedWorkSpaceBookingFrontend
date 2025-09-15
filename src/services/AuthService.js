@@ -2,6 +2,7 @@ import axios from "axios";
 
 const LOGIN_API = "http://localhost:8081/login";
 const WORKSPACE_API = "http://localhost:8082/api/workspaces";
+const SIGNUP_API = "http://localhost:8081/signup"
 
 const authHeader = () => {
   const token = localStorage.getItem("token");
@@ -11,7 +12,7 @@ const authHeader = () => {
 
 export const loginendpoint = (credentials) =>  axios.post(LOGIN_API, credentials);
 
-export const signupendpoint = () => axios.post();
+export const signupendpoint = (data) => axios.post(SIGNUP_API, data);
 
 export const getAllWorkspaces = () =>   axios.get(WORKSPACE_API, { headers: authHeader() });
 
