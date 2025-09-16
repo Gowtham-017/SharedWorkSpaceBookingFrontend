@@ -49,3 +49,11 @@ export const cancelBooking = (workspaceId, day,startTime,) =>
           params: { day, startTime },
         }).then(res=>res.data);
 
+
+
+
+//admin
+
+export const adminlogin = (credentials) =>  axios.post(LOGIN_API, credentials);
+
+export const adminsignup = (data) => axios.post(`${SIGNUP_API}/admin`, data);

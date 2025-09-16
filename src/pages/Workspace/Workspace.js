@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "components/Card";
-import BookingModal from "./BookingModal";
+import WorkspaceModal from "./WorkspaceModal";  
 import { getAllWorkspaces } from "services/AuthService";
 import SearchFilter from "./SearchFilter";   
 import "./Workspace.css";
@@ -8,10 +8,12 @@ import "./Workspace.css";
 const Workspace = () => {
   const [workspaces, setWorkspaces] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedWorkspace, setSelectedWorkspace] = useState(null);
-  const [showModal, setShowModal] = useState(false);
 
   const [filteredWorkspaces, setFilteredWorkspaces] = useState([]);
+
+  const [selectedWorkspace, setSelectedWorkspace] = useState(null);
+  const [modalMode, setModalMode] = useState("view"); 
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchWorkspaces = async () => {
@@ -44,8 +46,15 @@ const Workspace = () => {
                 type={ws.type}
                 capacity={ws.capacity}
                 location={ws.location}
-                onClick={() => {
+                imageUrl={ws.imageUrl}
+                onView={() => {
                   setSelectedWorkspace(ws);
+                  setModalMode("view");
+                  setShowModal(true);
+                }}
+                onBook={() => {
+                  setSelectedWorkspace(ws);
+                  setModalMode("book");
                   setShowModal(true);
                 }}
               />
@@ -57,10 +66,11 @@ const Workspace = () => {
       </div>
 
       {selectedWorkspace && (
-        <BookingModal
+        <WorkspaceModal
           show={showModal}
           handleClose={() => setShowModal(false)}
           workspace={selectedWorkspace}
+          mode={modalMode}
         />
       )}
     </div>

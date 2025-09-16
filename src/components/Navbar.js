@@ -49,10 +49,11 @@ const Navbar = () => {
                   >
                     Dashboard
                   </NavLink>
+              
                 </li>
                 <li className="nav-item">
                   <button
-                    className={`btn btn-primary ${showProfile ? "active" : ""}`} // highlight if open
+                    className={`btn btn-primary ${showProfile ? "active" : ""}`} 
                     onClick={() => setShowProfile((prev) => !prev)}
                   >
                     Profile

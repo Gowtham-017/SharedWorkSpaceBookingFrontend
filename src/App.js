@@ -7,7 +7,11 @@ import Signup from "pages/Signup/Signup"
 import Dashboard from 'pages/Dashboard/Dashboard';
 import Profile from 'pages/Profile/Profile';
 import Workspace from 'pages/Workspace/Workspace';
+
+import AdminSignup from "admin/Signup/AdminSignup"
 import { AuthProvider } from 'context/AuthContext';
+import Edit from 'admin/Edit';
+import CreateWorkspace from 'admin/CreateWorkspace';
 function App() {
   return (
     <div className="App">
@@ -22,9 +26,9 @@ function App() {
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/workspace" element={<Workspace/>}/>
 
-              {/* <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/> */}
-
-
+              <Route path="/signup/admin" element={<AdminSignup/>}/>
+              <Route path="/admin/edit" element={<Edit/>}/>
+              <Route path="/admin/create" element={<CreateWorkspace/>}/>
               <Route path='*' element={<Navigate to="/"/>}/>
             </Routes>
           </Layout>
@@ -33,5 +37,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
